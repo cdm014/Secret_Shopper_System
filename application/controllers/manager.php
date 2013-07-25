@@ -73,6 +73,8 @@ class Manager extends CI_Controller {
 			$data['ShoppersLink'] = anchor('manager/display_shoppers','Shopper Data');
 			$data['ReviewsLink'] = anchor('manager/all_reviews','List of Reviews Submitted');
 			$data['BranchScoresLink'] = anchor('manager/branch_scores','See Branch scores for Yes or No questions');
+			$data['IndividualBranch'] = anchor('manager/individual_scores','See scores for Yes or No questions for an individual branch');
+			
 			$this->load->view('manager/main',$data);
 		/*
 			echo "<h1>Manager/main</h1>";
@@ -193,13 +195,57 @@ class Manager extends CI_Controller {
 			$branch = func_get_arg(0);
 			$fields = array('greeted','thanked','welcome','NameBadges','assistance','escort','selfcheck');
 			$this->load->library('table');
-			$this->table->set_template(array('table_open' => '<table cellpadding="4" border="1" cellspacing ="0">'));
+			$this->table->set_template(array('table_open' => '<table cellpadding="4" border="1" cellspacing ="0"><col style="width:10em">'));
 			$this->load->model('question/question_model','question');
+			$branch_name = $this->question->translate_answer('branch',$branch);
+			
 			$this->load->model('review/review_model','review');
+			$headings = array();
+			$headings[] = 'Review';
+			foreach ($fields as $field)
+			{
+				if($field == 'selfcheck') {
+					$headings[] = "Mentioned Self-Checkout";
+				} elseif ($field == 'escort'){
+					$headings[] = "Were you escorted to the book you asked for?";
+				}else {
+					$headings[] = $this->question->translate_question_code($field);
+				}
+			}
+			$this->table->set_heading($headings);
+			
 			$reviews = $this->review->get_branch_reviews($branch);
+			foreach ($reviews as $review){
+				$date = $review['date'];
+				$time = $review['time'];
+				$ss_id = $review['ss_id'];
+				$row = array();
+				$row[] = anchor('manager/view_review/'.$review['branch']."/".$review['ss_id']."/".$review['date'].'/'.$review['time'],$date." ".$time);
+				
+				foreach ($fields as $field) {
+					$answer = $this->review->get_review_answer($branch,$ss_id,$date,$time,$field);
+					$row[] = $answer[0]['answer'];
+				}
+				$this->table->add_row($row);
+				
+			}
+			$final_row = array();
+			$final_row[] = "Scores";
+			foreach ($fields as $field) {
+				$score = $this->review->get_branch_score($field,$branch);
+				$final_row[] = ($score['score'] * 100)."%";
+			}	
+			$this->table->add_row($final_row);
+			$data['table'] = $this->table->generate();
+			$data['branch_name'] = $branch_name;
+			$data['branch'] = $branch;
+			$data['mainlink'] = $this->mainlink;
+			$data['IndividualBranch'] = anchor('manager/individual_scores','Back to Branches Menu');
+			$this->load->view('manager/individual_scores',$data);
+			
 		} else {
 			//we didn't pass a branch
-			echo "No branch passed";
+			
 			$this->db->select('branch');
 			$this->db->distinct();
 			$bquery = $this->db->get('reviews');
@@ -207,9 +253,22 @@ class Manager extends CI_Controller {
 			foreach ($bquery->result_array() as $row){
 				$branches[] = $row['branch'];
 			}
+			$branchLinks = array();
+			$this->load->library('table');
 			foreach ($branches as $branch) {
-				echo "<p>".anchor('manager/individual_scores/'.$branch,$branch)."</p>";
+				$this->load->model('question/question_model','question');
+				$branch_name = $this->question->translate_answer('branch',$branch);
+				$branchLinks[] = anchor('manager/individual_scores/'.$branch,$branch_name);
+				$this->table->add_row(anchor('manager/individual_scores/'.$branch,$branch_name));
 			}
+			$data = array();
+			$data['branchLinks'] = $branchLinks;
+			$data['mainlink'] = $this->mainlink;
+			$data['table'] = $this->table->generate();
+			$this->load->view('manager/branch_list',$data);
+			
+			
+			
 		}
 	
 	}
@@ -309,7 +368,8 @@ class Manager extends CI_Controller {
 			
 			
 			$rowArray = array();
-			$rowArray[] = $this->question->translate_answer('branch',$branch);
+			$branch_name = $this->question->translate_answer('branch',$branch);
+			$rowArray[] = anchor('manager/individual_scores/'.$branch,$branch_name);
 			
 			foreach ($fields as $field)
 			{
@@ -323,7 +383,8 @@ class Manager extends CI_Controller {
 		$data['table'] = $this->table->generate();
 		$data['returnlink'] = $this->mainlink;
 		$data['ReviewsLink'] = anchor("manager/all_reviews","List of Secret Shopper Reviews",'id="ReviewsLink"');
-		$data['instructions'] = "<p></p>";
+		$data['IndividualBranch'] = anchor('manager/individual_scores','See scores for Yes or No questions for an individual branch');
+		$data['instructions'] = "<p>Click the Branch name to see the individual review scores for that branch.</p>";
 		$this->load->view('manager/branch_scores',$data);
 		//*/
 		/*

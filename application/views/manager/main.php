@@ -9,6 +9,7 @@
 <li><?=$ShoppersLink;?></li>
 <li><?=$ReviewsLink;?></li>
 <li><?=$BranchScoresLink;?></li>
+<li><?=$IndividualBranch;?></li>
 </ul>
 </body>
 </html>

@@ -6,8 +6,9 @@
 <body>
 <h1>Branch Scores</h1>
 <ul>
-<li><?=$returnlink;?>
-<li><?=$ReviewsLink;?>
+<li><?=$returnlink;?></li>
+<li><?=$ReviewsLink;?></li>
+<li><?=$IndividualBranch;?></li>
 </ul>
 <?=$instructions;?>
 <?=$table;?>
