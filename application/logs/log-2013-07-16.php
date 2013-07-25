@@ -420,3 +420,263 @@ DEBUG - 2013-07-16 11:12:45 --> Helper loaded: html_helper
 DEBUG - 2013-07-16 11:12:45 --> File loaded: application/views/manager/main.php
 DEBUG - 2013-07-16 11:12:45 --> Final output sent to browser
 DEBUG - 2013-07-16 11:12:45 --> Total execution time: 0.0782
+DEBUG - 2013-07-16 14:51:21 --> Config Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> Hooks Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 14:51:21 --> URI Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> Router Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> Output Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> Security Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> Input Class Initialized
+DEBUG - 2013-07-16 14:51:21 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 14:51:21 --> Language Class Initialized
+ERROR - 2013-07-16 14:51:22 --> 404 Page Not Found --> install/index
+DEBUG - 2013-07-16 14:51:39 --> Config Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Hooks Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 14:51:39 --> URI Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Router Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Output Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Security Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Input Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 14:51:39 --> Language Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Loader Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Controller Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Model Class Initialized
+DEBUG - 2013-07-16 14:51:39 --> Model Class Initialized
+ERROR - 2013-07-16 14:51:39 --> Severity: Notice  --> Undefined variable: db C:\inetpub\wwwroot\secret_shopper\application\models\install\install_model.php 12
+DEBUG - 2013-07-16 14:51:39 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 14:51:39 --> Final output sent to browser
+DEBUG - 2013-07-16 14:51:39 --> Total execution time: 0.1550
+DEBUG - 2013-07-16 14:52:22 --> Config Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Hooks Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 14:52:22 --> URI Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Router Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Output Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Security Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Input Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 14:52:22 --> Language Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Loader Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Controller Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Model Class Initialized
+DEBUG - 2013-07-16 14:52:22 --> Model Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Config Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:01:22 --> URI Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Router Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Output Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Security Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Input Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:01:22 --> Language Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Model Class Initialized
+DEBUG - 2013-07-16 15:01:22 --> Model Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Config Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:01:34 --> URI Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Router Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Output Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Security Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Input Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:01:34 --> Language Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Model Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Model Class Initialized
+DEBUG - 2013-07-16 15:01:34 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 15:01:34 --> Final output sent to browser
+DEBUG - 2013-07-16 15:01:34 --> Total execution time: 0.0985
+DEBUG - 2013-07-16 15:01:55 --> Config Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:01:55 --> URI Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Router Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Output Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Security Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Input Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:01:55 --> Language Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Model Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Model Class Initialized
+DEBUG - 2013-07-16 15:01:55 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 15:01:55 --> Final output sent to browser
+DEBUG - 2013-07-16 15:01:55 --> Total execution time: 0.1048
+DEBUG - 2013-07-16 15:18:35 --> Config Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:18:35 --> URI Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Router Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Output Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Security Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Input Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:18:35 --> Language Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Model Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Model Class Initialized
+DEBUG - 2013-07-16 15:18:35 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 15:18:35 --> Final output sent to browser
+DEBUG - 2013-07-16 15:18:35 --> Total execution time: 0.2099
+DEBUG - 2013-07-16 15:18:44 --> Config Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:18:44 --> URI Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Router Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Output Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Security Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Input Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:18:44 --> Language Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Model Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Model Class Initialized
+DEBUG - 2013-07-16 15:18:44 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 15:18:44 --> Helper loaded: url_helper
+DEBUG - 2013-07-16 15:18:44 --> Final output sent to browser
+DEBUG - 2013-07-16 15:18:44 --> Total execution time: 0.0931
+DEBUG - 2013-07-16 15:19:06 --> Config Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:19:06 --> URI Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Router Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Output Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Security Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Input Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:19:06 --> Language Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Model Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Model Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 15:19:06 --> Helper loaded: url_helper
+DEBUG - 2013-07-16 15:19:06 --> Database Forge Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Database Utility Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> Database Forge Class Initialized
+DEBUG - 2013-07-16 15:19:06 --> DB Transaction Failure
+ERROR - 2013-07-16 15:19:06 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'EXISTSsecret_shopper' at line 1
+DEBUG - 2013-07-16 15:19:06 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2013-07-16 15:19:33 --> Config Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:19:33 --> URI Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Router Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Output Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Security Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Input Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:19:33 --> Language Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Model Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Model Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 15:19:33 --> Helper loaded: url_helper
+DEBUG - 2013-07-16 15:19:33 --> Database Forge Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Database Utility Class Initialized
+DEBUG - 2013-07-16 15:19:33 --> Database Forge Class Initialized
+ERROR - 2013-07-16 15:19:33 --> Severity: Notice  --> Undefined index: constraint C:\inetpub\wwwroot\secret_shopper\application\models\install\install_model.php 214
+DEBUG - 2013-07-16 15:19:33 --> DB Transaction Failure
+ERROR - 2013-07-16 15:19:33 --> Query error: No database selected
+DEBUG - 2013-07-16 15:19:33 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2013-07-16 15:22:39 --> Config Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:22:39 --> URI Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Router Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Output Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Security Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Input Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:22:39 --> Language Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:22:39 --> Database Driver Class Initialized
+ERROR - 2013-07-16 15:22:39 --> Unable to select database: secret_shopper
+DEBUG - 2013-07-16 15:22:39 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2013-07-16 15:22:59 --> Config Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:22:59 --> URI Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Router Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Output Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Security Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Input Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:22:59 --> Language Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:22:59 --> Database Driver Class Initialized
+ERROR - 2013-07-16 15:22:59 --> Unable to select database: secret_shopper
+DEBUG - 2013-07-16 15:22:59 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2013-07-16 15:23:00 --> Config Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:23:00 --> URI Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Router Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Output Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Security Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Input Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:23:00 --> Language Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:23:00 --> Database Driver Class Initialized
+ERROR - 2013-07-16 15:23:00 --> Unable to select database: secret_shopper
+DEBUG - 2013-07-16 15:23:00 --> Language file loaded: language/english/db_lang.php
+DEBUG - 2013-07-16 15:25:49 --> Config Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Hooks Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Utf8 Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> UTF-8 Support Enabled
+DEBUG - 2013-07-16 15:25:49 --> URI Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Router Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Output Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Security Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Input Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Global POST and COOKIE data sanitized
+DEBUG - 2013-07-16 15:25:49 --> Language Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Loader Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Database Driver Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Controller Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Model Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Model Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Helper loaded: html_helper
+DEBUG - 2013-07-16 15:25:49 --> Helper loaded: url_helper
+DEBUG - 2013-07-16 15:25:49 --> Database Forge Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Database Utility Class Initialized
+DEBUG - 2013-07-16 15:25:49 --> Database Forge Class Initialized
+ERROR - 2013-07-16 15:25:49 --> Severity: Notice  --> Undefined index: constraint C:\inetpub\wwwroot\secret_shopper\application\models\install\install_model.php 215
+DEBUG - 2013-07-16 15:25:49 --> DB Transaction Failure
+ERROR - 2013-07-16 15:25:49 --> Query error: No database selected
+DEBUG - 2013-07-16 15:25:49 --> Language file loaded: language/english/db_lang.php

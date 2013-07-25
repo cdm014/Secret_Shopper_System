@@ -187,6 +187,33 @@ class Manager extends CI_Controller {
 		//*/
 	}
 	
+	public function individual_scores() {
+		if (func_num_args() > 0) {
+			//we passed a branch
+			$branch = func_get_arg(0);
+			$fields = array('greeted','thanked','welcome','NameBadges','assistance','escort','selfcheck');
+			$this->load->library('table');
+			$this->table->set_template(array('table_open' => '<table cellpadding="4" border="1" cellspacing ="0">'));
+			$this->load->model('question/question_model','question');
+			$this->load->model('review/review_model','review');
+			$reviews = $this->review->get_branch_reviews($branch);
+		} else {
+			//we didn't pass a branch
+			echo "No branch passed";
+			$this->db->select('branch');
+			$this->db->distinct();
+			$bquery = $this->db->get('reviews');
+			$branches = array();
+			foreach ($bquery->result_array() as $row){
+				$branches[] = $row['branch'];
+			}
+			foreach ($branches as $branch) {
+				echo "<p>".anchor('manager/individual_scores/'.$branch,$branch)."</p>";
+			}
+		}
+	
+	}
+	
 	
 	public function view_review($branch,$ss_id,$date,$time){
 		$this->load->model('review/review_model','review');
@@ -288,7 +315,7 @@ class Manager extends CI_Controller {
 			{
 				
 				$score = $this->review->get_branch_score($field,$branch);
-				$rowArray[] = $score['score'];
+				$rowArray[] = ($score['score'] * 100)."%";
 			}
 			$this->table->add_row($rowArray);
 			
@@ -296,7 +323,7 @@ class Manager extends CI_Controller {
 		$data['table'] = $this->table->generate();
 		$data['returnlink'] = $this->mainlink;
 		$data['ReviewsLink'] = anchor("manager/all_reviews","List of Secret Shopper Reviews",'id="ReviewsLink"');
-		$data['instructions'] = "<p>Scores range from 0 to 1 and are computed as Yes_answes/(Yes_answers + No_answers + Blank_answers)</p>";
+		$data['instructions'] = "<p></p>";
 		$this->load->view('manager/branch_scores',$data);
 		//*/
 		/*

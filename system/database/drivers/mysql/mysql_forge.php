@@ -47,7 +47,7 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 	 */
 	function _drop_database($name)
 	{
-		return "DROP DATABASE ".$name;
+		return "DROP DATABASE IF EXISTS ".$name;
 	}
 
 	// --------------------------------------------------------------------
