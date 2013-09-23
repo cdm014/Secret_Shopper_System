@@ -1,5 +1,17 @@
 Secret_Shopper_System
 =====================
+##To Do##
+* [] add question editor function to manager controller
+* [] add quiz editor function to manager controller
+* [] add quiz selection function to shopper controller
+
+
+##Updated 2013-09-23##
+The addition of two more tables to the database will allow quizzes to be created from the management interface rather than as views.
+* quizzes will store the names and id numbers of the quizzes
+* quiz_questions is where the questions for the individual quizzes are set up it stores quiz number, question code, and order to the questions for that quiz.
+
+##Original ##
 
 built on CodeIgniter to allow library to manage and survey secret shoppers.
 Requires a database named 'secret_shopper' with 4 tables

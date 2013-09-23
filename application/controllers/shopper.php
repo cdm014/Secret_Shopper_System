@@ -37,6 +37,9 @@ class Shopper extends CI_Controller {
 			}
 			$this->input->set_cookie($cookie);
 			$this->load->helper('url');
+			/*
+				TODO: need to change next line to go to form selector after I add function for it
+			*/
 			redirect('/shopper/review_form/','refresh');
 			echo "it worked 2";
 		} else {
@@ -66,7 +69,9 @@ class Shopper extends CI_Controller {
 	
 	public function review_form()
 	{
-	
+		/*
+		 TODO: need to change this to figure out which form was selected and load the appropriate form.
+		*/
 	
 		$this->load->model('shopper/shopper_model','shopper');
 		$shopper = $this->shopper->get_shopper_info($this->input->cookie('ss_id'));

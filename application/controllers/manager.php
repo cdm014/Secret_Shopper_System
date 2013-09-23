@@ -396,5 +396,9 @@ class Manager extends CI_Controller {
 		//*/
 	}
 	
+	/*
+	 TODO: add quiz creator/editor and question creator/editor functions
+	*/
+	
 	
 }

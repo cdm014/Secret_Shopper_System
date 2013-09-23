@@ -9,7 +9,7 @@
 		public function get_all_reviews()
 		{
 			$this->db->select($this->reviews.', date, time, branch, ss_id');
-			$this->db->order_by('branch','asc');
+			$this->db->order_by('date desc');
 			$query = $this->db->get('reviews');
 			$retval = array();
 			if ($query->num_rows() > 0) {
@@ -27,6 +27,7 @@
 		{
 			$this->db->select($this->reviews.', date, time, branch, ss_id',false);
 			$this->db->where('branch',$branch);
+			$this->db->order_by('date desc');
 			$query = $this->db->get('reviews');
 			if ($query->num_rows() > 0) {
 				foreach ($query->result_array() as $row)
