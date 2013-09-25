@@ -64,7 +64,7 @@ $yes_btn = array(
 	'ec' => 'Extremely Casual'
 );?>
 <?=form_dropdown('employee_appearance',$emp_dressed);?><br />
-Give examples if needed <br />
+Give examples if needed (<span style="font-weight:bold">Note:</span> Our standard is business casual.) <br />
 <?=form_textarea('employee_appearance_examples');?></p>
 
 <p>Were the employees wearing name badges?<br />

@@ -36,5 +36,12 @@ class Review extends CI_Controller {
 		$this->load->view('shopper/thankyou');
 	}
 	
+	public function refSubmit()
+	{
+		/*
+			//Stub for submit function for reference review
+		//*/
+	}
+	
 	
 }

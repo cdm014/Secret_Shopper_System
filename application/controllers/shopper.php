@@ -37,7 +37,7 @@ class Shopper extends CI_Controller {
 			}
 			$this->input->set_cookie($cookie);
 			$this->load->helper('url');
-			redirect('/shopper/review_form/','refresh');
+			redirect('/shopper/select_form/','refresh');
 			echo "it worked 2";
 		} else {
 			$this->load->helper('url');
@@ -64,7 +64,28 @@ class Shopper extends CI_Controller {
 			redirect('/shopper/index/','refresh');
 	}
 	
-	public function review_form()
+	public function select_form()
+	{
+		/*
+		//stub function for selecting whether to do a branch review or a reference review
+		//*/
+		$this->load->helper("url");
+		$branch_link = anchor("/shopper/branch_review","Fill out a Branch Survey");
+		$ref_link = anchor("/shopper/reference_review","Fill out a Reference Survey");
+		$data = array();
+		$data['branch_link'] = $branch_link;
+		$data['ref_link'] = $ref_link;
+		$this->load->view('shopper/select_form',$data);
+		/*
+			//Display Stub
+			echo "<h1>Display Stub</h1><p>Stub in select_form() in application/controllers/shopper.php</p>";
+			echo "<p>$branch_link</p>";
+			echo "<p>$ref_link</p>";
+		//*/
+	
+	}
+	
+	public function branch_review()
 	{
 	
 	
@@ -76,6 +97,16 @@ class Shopper extends CI_Controller {
 			
 		$this->load->view('shopper/review',$data);
 		
+	}
+	
+	public function reference_review()
+	{
+	
+		//*
+			//Display Stub
+			echo "<h1>Display Stub</h1>";
+			echo "<p>Display Stub for reference_review() in application/controllers/shopper.php</p>";
+		//*/
 	}
 	
 	private function _login_form() 

@@ -19,6 +19,7 @@
 				{
 					$data[] = $answer;
 				}
+				return $data;
 			} else {
 				return false;
 			}
@@ -83,6 +84,63 @@
 				case "checkbox":
 					return $this->translate_answer_sval($qcode,$answer);
 					
+			}
+		}
+		
+		function get_form_field($qcode)
+		{
+			$qarray = $this->get_question($qcode);
+			$retval = "";
+			switch($qarray['type'])
+			{
+				case "text":
+					$retval = $qarray['text']."<br />".form_input($qarray['code']);
+					break;
+				case "dropdown":
+					$ddarray = array();
+					$aarray = $this->get_answers($qarray['code']);
+					foreach ($aarray as $answer)
+					{
+						$ddarray[$answer['sval']] = $answer['dval'];
+					}
+					$retval = $qarray['text']."<br />".form_dropdown($qarray['code'],$ddarray);
+					break;
+				case "yes_no":
+					$no_btn = array(
+						'name' => $qarray['code'],
+						'id' => "Not".$qarray['code'],
+						'value' => 0,
+						'checked' => false
+					);
+					$yes_btn = array(
+						'name' => $qarray['code'],
+						'id' => $qarray['code'],
+						'value'=>1,
+						'checked'=>false
+					);
+					$retval = $qarray['text']."<br />".form_radio($no_btn).form_label("No","Not".$qarray['code']).form_radio($yes_btn).form_label("Yes",$qarray['code']);
+					break;
+				case "textarea":
+					$retval = $qarray['text']."<br />".form_textarea($qarray['code']);
+					break;
+			}
+			return $retval;
+		}
+		
+		function get_quiz_question($quiz)
+		{
+			$this->db->where('quiz_id',$quiz);
+			$this->db->order_by('order asc');
+			$query = $this->db->get('quiz_questions');
+			if ($query->num_rows < 1) {
+				return false;
+			} else {
+				$retval = array();
+				foreach ($query->result_array() as $row)
+				{
+					$retval[] = $row;
+				}
+				return $retval;
 			}
 		}
 	}		
