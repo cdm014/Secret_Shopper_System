@@ -11,6 +11,7 @@
 		function get_answers($qcode)
 		{
 			$this->db->where('code',$qcode);
+			$this->db->order_by('order asc');
 			$query = $this->db->get('q_answers');
 			if ($query->num_rows() > 0) 
 			{
@@ -19,6 +20,7 @@
 				{
 					$data[] = $answer;
 				}
+				return $data;
 			} else {
 				return false;
 			}
@@ -84,5 +86,48 @@
 					return $this->translate_answer_sval($qcode,$answer);
 					
 			}
+		}
+		
+		function get_form_field($qcode)
+		{
+			$question = $this->get_question($qcode);
+			//*
+			$retval = "";
+			switch($question['type'])
+			{
+				case "text":
+					$retval = $question['text'].form_input($question['code']);
+					break;
+				
+				case "dropdown":
+					$answers = $this->get_answers($question['code']);
+					
+					if ($answers !== false)
+					{
+						
+						$ddarray = array();
+						
+						foreach ($answers as $answer)
+						{
+							$ddarray[$answer['sval']] = $answer['dval'];
+						}	
+						$retval = $question['text'].form_dropdown($question['code'],$ddarray);
+						
+					}
+					
+					break;
+					
+				
+				case "checkbox":
+					break;
+				case "radio button":
+					break;
+				case "yes_no":
+					break;
+				case "textarea":
+				
+			}
+			return $retval;
+			
 		}
 	}		
