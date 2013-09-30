@@ -101,11 +101,28 @@ class Shopper extends CI_Controller {
 	
 	public function reference_review()
 	{
-	
-		//*
+		$this->load->model('question/question_model','question');
+		$this->load->model('shopper/shopper_model','shopper');
+		$this->load->helper('form');
+		$this->load->helper('url');
+		$shopper = $this->shopper->get_shopper_info($this->input->cookie('ss_id'));
+		$quiz_questions = $this->question->get_quiz_question(2);
+		$data = array();
+		$data['shopper'] = $shopper;
+		foreach ($quiz_questions as $question)
+		{
+			$data[$question['question_code']] = $this->question->get_form_field($question['question_code']);
+		}
+		$this->load->view('shopper/reference_review',$data);
+		/*
 			//Display Stub
 			echo "<h1>Display Stub</h1>";
 			echo "<p>Display Stub for reference_review() in application/controllers/shopper.php</p>";
+			echo "<pre>".print_r($quiz_questions,true)."</pre>";
+			foreach ($quiz_questions as $question)
+			{
+				echo "<p> $".$question['question_code'].": ".$this->question->get_form_field($question['question_code'])."</p>";
+			}
 		//*/
 	}
 	

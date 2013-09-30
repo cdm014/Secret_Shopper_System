@@ -123,7 +123,14 @@
 				case "textarea":
 					$retval = $qarray['text']."<br />".form_textarea($qarray['code']);
 					break;
+				case "fieldset":
+					$retval = form_fieldset($qarray['text']);
+					break;
+				case "fieldset_close":
+					$retval = form_fieldset_close();
+					break;
 			}
+			$retval = "<p>".$retval."</p>";
 			return $retval;
 		}
 		
