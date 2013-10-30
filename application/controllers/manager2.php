@@ -74,7 +74,6 @@ class Manager extends CI_Controller {
 			$data['ReviewsLink'] = anchor('manager/all_reviews','List of Reviews Submitted');
 			$data['BranchScoresLink'] = anchor('manager/branch_scores','See Branch scores for Yes or No questions');
 			$data['IndividualBranch'] = anchor('manager/individual_scores','See scores for Yes or No questions for an individual branch');
-			$data['ReferenceReviewsLink'] = anchor('manager/reference_reviews','List of Reference Reviews');
 			
 			$this->load->view('manager/main',$data);
 		/*
@@ -189,43 +188,6 @@ class Manager extends CI_Controller {
 		echo "<pre>".print_r($data,true)."</pre>";
 		//*/
 	}
-	
-	public function reference_reviews()
-	{
-		$data = array();
-		$this->load->model('review/reference_model','reference');
-		$reviews = $this->reference->get_reviews();
-		//$data['reviews'] = $reviews;
-		if($reviews !== false)
-		{
-			$data['has_data'] = true;
-			$this->load->library('table');
-			$this->load->helper(array('url','form','html'));
-			$this->table->set_heading("Date","Time","Shopper ID","Link");
-			foreach ($reviews as $review)
-			{
-				$this->table->add_row($review['date'],$review['time'],$review['ss_id'],anchor('manager/view_ref_review/'.$review['ss_id']."/".$review['date']."/".$review['time'],'See Review'));
-			}
-			$data['table'] = $this->table->generate();		
-			$data['returnlink']=$this->mainlink;
-			$data['err_msg']='';
-			
-		} else {
-			$data['has_data'] = false;
-			$data['err_msg'] = "<p>No Reference Reviews Found</p>";
-		}
-		$this->load->view('review/list_reference',$data);
-		
-		/*
-		echo "<h1>manager/reference_reviews</h1>";
-		echo "<pre>".print_r($data,true)."</pre>";
-		if($reviews === false) {
-			echo "<p> No Reviews Found</p>";
-		}
-		//*/
-	}
-	
-	
 	
 	public function individual_scores() {
 		if (func_num_args() > 0) {
