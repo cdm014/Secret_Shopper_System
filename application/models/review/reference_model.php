@@ -52,4 +52,19 @@
 			}
 		}
 		//*/
+		public function get_review_answer($ss_id,$date,$time,$question)
+		{
+			$this->db->where('ss_id',$ss_id);
+			$this->db->where('date',$date);
+			$this->db->where('time',$time);
+			$this->db->where('question',$question);
+			$query = $this->db->get('ref_reviews');
+			if($query->num_rows() > 0) 
+			{
+				return $query->result_array();
+			} else {
+				return false;
+			}
+			
+		}
 	}

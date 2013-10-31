@@ -75,6 +75,7 @@ class Manager extends CI_Controller {
 			$data['BranchScoresLink'] = anchor('manager/branch_scores','See Branch scores for Yes or No questions');
 			$data['IndividualBranch'] = anchor('manager/individual_scores','See scores for Yes or No questions for an individual branch');
 			$data['ReferenceReviewsLink'] = anchor('manager/reference_reviews','List of Reference Reviews');
+			$data['ReferenceScoresLink'] = anchor('manager/reference_scores','See scores for Yes or No questions for the Reference Department');
 			
 			$this->load->view('manager/main',$data);
 		/*
@@ -310,7 +311,79 @@ class Manager extends CI_Controller {
 		}
 	
 	}
-	
+	public function reference_scores()
+	{
+		$this->load->model('question/question_model','question');
+		$this->load->model('review/reference_model','reference');
+		$fields = $this->question->get_quiz_question(2);
+		$data['fields'] = $fields;
+		$questions = array();
+		foreach ($fields as $field) {
+			$questions[$field['question_code']] = $this->question->get_question($field['question_code']);
+		}
+		$data['questions'] = $questions;
+		$score_fields = array();
+		
+		$score_fields_labels = array();
+		$score_fields_labels[] = 'Review';
+		foreach ($questions as $question) 
+		{
+			if ($question['type'] == 'yes_no')
+			{
+				$score_fields[] = $question['code'];
+				$score_fields_labels[] = $question['text'];
+			}
+		}
+		$data['score_fields'] = $score_fields;
+		$data['score_fields_labels'] = $score_fields_labels;
+		$this->load->library('table');
+		$this->table->set_template(array('table_open' => '<table cellpadding="4" border="1" cellspacing ="0"><col style="width:10em">'));
+		$this->table->set_heading($score_fields_labels);
+		$reviews = $this->reference->get_reviews();
+		if($reviews !== false)
+		{
+			$data['err_msg'] = false;
+			$data['reviews'] = $reviews;
+			foreach ($reviews as $review)
+			{
+				$date = $review['date'];
+				$time = $review['time'];
+				$ss_id = $review['ss_id'];
+				$row = array();
+				$row[] = anchor('/manager/view_ref_review/'.$ss_id."/".$date."/".$time,$date." ".$time); 
+				foreach($score_fields as $field)
+				{
+					$answer = $this->reference->get_review_answer($ss_id,$date,$time,$field); 
+					$row[] = $answer[0]['answer'];
+				}
+				$this->table->add_row($row);
+			}
+			//final row
+			$final_row = array();
+			$final_row[] = "Score";
+			foreach($score_fields as $field)
+			{
+				$score = $this->reference->get_score($field);
+				$final_row[] = ($score['score']* 100)."%"; 
+				
+			}
+			$this->table->add_row($final_row); 
+			$data['table'] = $this->table->generate();
+		} else {
+			$data['err_msg'] = "<p>No Reviews Found</p>";
+		}
+		$data['mainlink'] = $this->mainlink;
+		$this->load->view('manager/reference_scores',$data);
+		/*
+		echo "<h1>manager/reference_scores</h1>";
+		echo "<pre>".print_r($data,true)."</pre>";
+		/*
+		if($reviews === false) {
+			echo "<p> No Reviews Found</p>";
+		}
+		//*/
+		
+	}
 	
 	public function view_review($branch,$ss_id,$date,$time){
 		$this->load->model('review/review_model','review');
@@ -433,6 +506,7 @@ class Manager extends CI_Controller {
 		echo $data['table'];
 		//*/
 	}
+	
 	
 	
 }
