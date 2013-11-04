@@ -431,6 +431,7 @@ class Manager extends CI_Controller {
 		}
 		$table = $this->table->generate();
 		$data['table'] = $table;
+		$data['listreviewslink'] = anchor('/manager/all_reviews','List of all Branch Reviews');
 		$this->load->view('review/view',$data);
 		/*
 		//echo "<pre>".print_r($review,true)."</pre>";
@@ -438,6 +439,55 @@ class Manager extends CI_Controller {
 		echo "<p>This is a stub in controllers/manager.php function: view_review(). This code should be replaced with a real call to a view.</p>";
 		echo "<p>$this->mainlink</p>";
 		echo $table;
+		//*/
+	}
+	
+	public function view_ref_review($ss_id,$date,$time) 
+	{
+		//echo "Test 1";
+		
+		$this->load->model('review/reference_model','reference');
+		$this->load->model('question/question_model','question');
+		$this->load->library('table');
+		$this->table->set_heading('Question','Response');
+		
+		//echo "Test 2 ";
+		
+		//*
+		$review = $this->reference->get_review($ss_id,$date,$time);
+		$data = array();
+		$this->load->model('shopper/shopper_model','shopper');
+		$shopper = $this->shopper->get_shopper_info($ss_id);
+		$data['shopper'] = $shopper;
+		$data['branch']= "Main Reference Department";
+		$data['date'] = $date;
+		$data['returnlink'] = $this->mainlink;
+		$data['listreviewslink'] = anchor('/manager/reference_reviews','List of Reference Reviews');
+		if ($review !== false) {
+			//echo "<p>Test!</p>";
+			$data['review'] = $review;
+			$data['err_msg'] = '';
+	
+			foreach ($review as $question)
+			{
+				$qcode = $question['question'];
+				$answer = $question['answer'];
+				$this->table->add_row($this->question->translate_question_code($qcode),$this->question->translate_answer($qcode, $question['answer']));
+				
+			}
+			$data['table']= $this->table->generate();
+		} else {
+			$data['err_msg'] = '<p>No Reviews Found</p>';
+		}
+		//*/
+		$this->load->view('review/view',$data);
+		/*
+		//echo "<pre>".print_r($review,true)."</pre>";
+		echo "<h1>manager/view_review</h1>";
+		echo "<p>This is a stub in controllers/manager.php function: view_review(). This code should be replaced with a real call to a view.</p>";
+		echo "<pre>".print_r($data,true)."</pre>";
+		echo "<p>$this->mainlink</p>";
+		
 		//*/
 	}
 	

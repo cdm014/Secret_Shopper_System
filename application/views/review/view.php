@@ -20,7 +20,7 @@ $(document).ready(function(){
 <body>
 <h1>Secret Shopper Review of <?= $branch;?> on <?= $date;?></h1>
 
-<p><?=$returnlink;?> <?=anchor('/manager/all_reviews','List of Reviews','id="ListReviews"');?></p>
+<p><?=$returnlink;?> <?=$listreviewslink;?></p>
 <p></p>
 <?=$table;?>
 <a href="#" class="RevealShopper">Reveal Shopper Data</a>
