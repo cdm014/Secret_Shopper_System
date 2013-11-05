@@ -40,6 +40,7 @@ echo form_open('review/circ_submit',array('class'=>'ReviewForm'),$hidden_fields)
 <?=$LibraryCardExperience?>
 <?=$thanked;?>
 <?=$welcome;?>
+<?=$additionalComments;?>
 
 <?=form_submit('Submit','Submit Review');?>
 
