@@ -8,5 +8,6 @@
 <p><span style="font-weight:bold">Instructions:</span> Please select whether you are filling out a branch survey or a referenc department survey. If you did not visit the Main Library, you will <span style="font-weight:bold">ALWAYS</span> be filling out a branch survey.</p>
 <p><?= $branch_link; ?></p>
 <p><?= $ref_link; ?></p>
+<p><?= $circ_link;?></p>
 </body>
 </html>

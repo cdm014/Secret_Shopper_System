@@ -72,9 +72,12 @@ class Shopper extends CI_Controller {
 		$this->load->helper("url");
 		$branch_link = anchor("/shopper/branch_review","Fill out a Branch Survey");
 		$ref_link = anchor("/shopper/reference_review","Fill out a Reference Survey");
+		$circ_link = anchor("/shopper/circulation_review","Fill out a Main Circulation Survey");
+		
 		$data = array();
 		$data['branch_link'] = $branch_link;
 		$data['ref_link'] = $ref_link;
+		$data['circ_link'] = $circ_link;
 		$this->load->view('shopper/select_form',$data);
 		/*
 			//Display Stub
@@ -124,6 +127,35 @@ class Shopper extends CI_Controller {
 				echo "<p> $".$question['question_code'].": ".$this->question->get_form_field($question['question_code'])."</p>";
 			}
 		//*/
+	}
+	
+	public function circulation_review()
+	{
+		$data = array();
+		$quiz_questions = array();
+		$this->load->model('question/question_model','question');
+		$this->load->model('shopper/shopper_model','shopper');
+		$this->load->helper('form');
+		$this->load->helper('url');
+		$shopper = $this->shopper->get_shopper_info($this->input->cookie('ss_id'));
+		$data['shopper'] = $shopper;
+		$quiz_questions = $this->question->get_quiz_question(3);
+		foreach ($quiz_questions as $question)
+		{
+			$data[$question['question_code']] = $this->question->get_form_field($question['question_code']);
+		}
+		$this->load->view('shopper/circulation_review',$data);
+	/*
+		//Display Stub
+		echo "<h1>Display Stub</h1>";
+		echo "<p>Display stub for circulation_review() in application/controllers/shopper.php</p>";
+		//echo "<p>Data array</p><pre>".print_r($data,true)."</pre>";
+		//echo "<p>quiz_questions array</p><pre>".print_r($quiz_questions,true)."</pre>";
+		foreach ($quiz_questions as $question)
+		{
+			echo "<p> $".$question['question_code'].": ".$this->question->get_form_field($question['question_code'])."</p>";
+		}
+	//*/
 	}
 	
 	private function _login_form() 
