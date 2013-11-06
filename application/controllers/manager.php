@@ -226,8 +226,30 @@ class Manager extends CI_Controller {
 		//*/
 	}
 	
-	
-	
+	public function circulation_reviews()
+	{
+		$data = array();
+		$this->load->model('review/circulation_model','circ');
+		$reviews = $this->circ->get_reviews();
+		if($reviews !== false)
+		{
+			$data['has_data'] = true;
+			$this->load->library('table');
+			$this->load->helper(array('url','form','html'));
+			$this->table->set_heading("Date","Time","Shopper ID","Link");
+			foreach ($reviews as $review)
+			{
+				$this->table->add_row($review['date'],$review['time'],$review['ss_id'],anchor('manager/view_circ_review/'.$review['ss_id']."/".$review['date']."/".$review['time'],'See Review'));
+			}
+			$data['table'] = $this->table->generate();
+			$data['returnlink'] = $this->mainlink;
+			$data['err_msg'] = '';
+		} else {
+			$data['has_data'] = false;
+			$data['err_msg'] = "<p>No Circulation Reviews Found</p>";
+		}
+		$this->load->view('review/list_reference',$data);
+	}
 	public function individual_scores() {
 		if (func_num_args() > 0) {
 			//we passed a branch
@@ -574,6 +596,50 @@ class Manager extends CI_Controller {
 		//*/
 	}
 	
+	public function view_circ_review($ss_id,$date,$time)
+	{
+		$this->load->model('review/circulation_model','circ');
+		$this->load->model('question/question_model','question');;
+		$this->load->library('table');
+		$this->table->set_heading('Question','Response');
+		
+		$review = $this->circ->get_review($ss_id,$date,$time);
+		$data = array();
+		
+		$this->load->model('shopper/shopper_model','shopper');
+		$shopper = $this->shopper->get_shopper_info($ss_id);
+		$data['shopper'] = $shopper;
+		//*
+		$data['branch'] = 'Main Circulation Department';
+		$data['date'] = $date;
+		$data['returnlink'] = $this->mainlink;
+		$data['listreviewslink'] = anchor('/manager/circulation_reviews','List of Main Circulation Reviews');
+		//*/
+		//*
+		if ($review !== false) 
+		{
+			$data['review'] = $review;
+			$data['err_msg'] = '';
+			
+			foreach ($review as $question)
+			{
+				$qcode = $question['question'];
+				$answer = $question['answer'];
+				$this->table->add_row($this->question->translate_question_code($qcode),$this->question->translate_answer($qcode, $question['answer']));
+			}
+			$data['table'] = $this->table->generate();
+		} else {
+			$data['err_msg'] = '<p>No Reviews found</p>';
+		}
+		//*/
+		$this->load->view('review/view',$data);
+		/*
+		echo "<h1>manager/view_review</h1>";
+		echo "<p>This is a stub in controllers/manager.php function: view_review(). This code should be replaced with a real call to a view.</p>";
+		echo "<pre>".print_r($data,true)."</pre>";
+		echo "<p>$this->mainlink</p>";
+		//*/
+	}
 	public function branch_scores()
 	{
 	/*
