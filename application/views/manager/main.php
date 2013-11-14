@@ -12,6 +12,7 @@
 <li><?=$IndividualBranch;?></li>
 <li><?=$ReferenceReviewsLink;?></li>
 <li><?=$ReferenceScoresLink;?></li>
+<li><?=$CirculationReviewsLink;?></li>
 <li><?=$CirculationScoresLink;?></li>
 </ul>
 </body>

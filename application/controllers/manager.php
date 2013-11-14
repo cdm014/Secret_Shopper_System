@@ -77,6 +77,7 @@ class Manager extends CI_Controller {
 			$data['ReferenceReviewsLink'] = anchor('manager/reference_reviews','List of Reference Reviews');
 			$data['ReferenceScoresLink'] = anchor('manager/reference_scores','See scores for Yes or No questions for the Reference Department');
 			$data['CirculationScoresLink'] = anchor('manager/circ_scores','See Scores for Yes or No Questions for the Circulation Department');
+			$data['CirculationReviewsLink'] = anchor('manager/circulation_reviews','List of reviews for Main Circulation');
 			$this->load->view('manager/main',$data);
 		/*
 			echo "<h1>Manager/main</h1>";
@@ -225,6 +226,8 @@ class Manager extends CI_Controller {
 		}
 		//*/
 	}
+	
+	
 	
 	public function circulation_reviews()
 	{
