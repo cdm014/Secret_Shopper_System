@@ -89,12 +89,15 @@
 		
 		function get_form_field($qcode)
 		{
+			$this->load->library('form_validation');
+			$this->load->helper('form');
+			$this->load->helper('url');
 			$qarray = $this->get_question($qcode);
 			$retval = "";
 			switch($qarray['type'])
 			{
 				case "text":
-					$retval = $qarray['text']."<br />".form_input($qarray['code']);
+					$retval = $qarray['text']."<br />".form_input($qarray['code'],set_value($qarray['code']));
 					break;
 				case "dropdown":
 					$ddarray = array();
@@ -110,18 +113,18 @@
 						'name' => $qarray['code'],
 						'id' => "Not".$qarray['code'],
 						'value' => 0,
-						'checked' => false
+						'checked' => set_radio($qarray['code'],0)
 					);
 					$yes_btn = array(
 						'name' => $qarray['code'],
 						'id' => $qarray['code'],
 						'value'=>1,
-						'checked'=>false
+						'checked'=>set_radio($qarray['code'],1)
 					);
 					$retval = $qarray['text']."<br />".form_radio($no_btn).form_label("No","Not".$qarray['code']).form_radio($yes_btn).form_label("Yes",$qarray['code']);
 					break;
 				case "textarea":
-					$retval = $qarray['text']."<br />".form_textarea($qarray['code']);
+					$retval = $qarray['text']."<br />".form_textarea($qarray['code'],set_value($qarray['code']));
 					break;
 				case "fieldset":
 					$retval = form_fieldset($qarray['text']);

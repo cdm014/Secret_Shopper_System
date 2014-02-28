@@ -15,7 +15,7 @@
 	
 	This view is called from application/controllers/shopper.php circulation_review().
 -->
-	
+<?php echo validation_errors();?>	
 <?php $hidden_fields = array('ss_id' => $shopper->id);
 echo form_open('review/circ_submit',array('class'=>'ReviewForm'),$hidden_fields);
 ?>
