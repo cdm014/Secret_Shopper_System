@@ -79,6 +79,10 @@
 				case "text":
 					return $answer;
 					break;
+				case "textarea":
+					return $answer;
+					break;
+					
 				case "radio buttion":
 				case "dropdown":
 				case "checkbox":

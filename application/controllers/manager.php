@@ -507,40 +507,50 @@ class Manager extends CI_Controller {
 		$data['shopper'] = $shopper;
 		
 		$review = $this->review->get_review($branch,$ss_id,$date,$time);
-		foreach ($review as $question) 
-		{
+		if($review === false) {
+			echo "<p> Could not access review data </p>";
+			echo "<p> Branch: $branch </p>";
+			echo "<p> ss_id: $ss_id </p>";
+			echo "<p> Date: $date </p>";
+			echo "<p> Time: $time </p>";
+		} else {
+			foreach ($review as $question) 
+			{
 			
-			$DoNotDisplay = "greet_count,LibraryCardExperience,employee_activity,selfcheck";
-			if($question['question'] == 'card'||stripos($DoNotDisplay,$question['question']) === false &&($question['question'] != 'employee_appearance_examples' ||$question['answer'] != '')) {
-				
-				$qcode = $question['question'];
-				$answer = $question['answer'];
-				$this->table->add_row($this->question->translate_question_code($question['question']), $this->question->translate_answer($qcode,$answer));
-				$field = '';
-				if($question['question'] == 'greeted') {
-					$field = 'greet_count';
-				} elseif ($question['question'] == 'card' && $question['answer'] == 1) {
-					$field = "LibraryCardExperience";
-				} elseif ($question['question'] == 'employee_count') {
-					$field = "employee_activity";					
-				}
+				$DoNotDisplay = "greet_count,LibraryCardExperience,employee_activity";
+				if($question['question'] == 'card'||stripos($DoNotDisplay,$question['question']) === false &&($question['question'] != 'employee_appearance_examples' ||$question['answer'] != '')) {
+					
+					$qcode = $question['question'];
+					$answer = $question['answer'];
+					
+					$this->table->add_row($this->question->translate_question_code($question['question']), $this->question->translate_answer($qcode,$answer));
+					$field = '';
+					if($question['question'] == 'greeted') {
+						$field = 'greet_count';
+					} elseif ($question['question'] == 'card' && $question['answer'] == 1) {
+						$field = "LibraryCardExperience";
+					} elseif ($question['question'] == 'employee_count') {
+						$field = "employee_activity";					
+					}
 
-				if ($field != '') {
-					$answer2 = $this->review->get_review_answer($branch,$ss_id,$date,$time,$field);
-					$ranswer2 = $answer2[0]['answer'];
-					//echo "answer2: <pre>".print_r($answer2,true)." </pre>";
-					if($answer2 !== false) {
-						$this->table->add_row($this->question->translate_question_code($field),$this->question->translate_answer($field,$ranswer2));
-					} else {
-						$this->table->add_row($this->question->translate_question_code($field),"ERROR DATA NOT FOUND");
-					}		
+					if ($field != '') {
+						$answer2 = $this->review->get_review_answer($branch,$ss_id,$date,$time,$field);
+						$ranswer2 = $answer2[0]['answer'];
+						//echo "answer2: <pre>".print_r($answer2,true)." </pre>";
+						if($answer2 !== false) {
+							$this->table->add_row($this->question->translate_question_code($field),$this->question->translate_answer($field,$ranswer2));
+						} else {
+							$this->table->add_row($this->question->translate_question_code($field),"ERROR DATA NOT FOUND");
+						}		
+					}
 				}
+				
 			}
+			$table = $this->table->generate();
+			$data['table'] = $table;
+			$data['listreviewslink'] = anchor('/manager/all_reviews','List of all Branch Reviews');
+			$this->load->view('review/view',$data);
 		}
-		$table = $this->table->generate();
-		$data['table'] = $table;
-		$data['listreviewslink'] = anchor('/manager/all_reviews','List of all Branch Reviews');
-		$this->load->view('review/view',$data);
 		/*
 		//echo "<pre>".print_r($review,true)."</pre>";
 		echo "<h1>manager/view_review</h1>";

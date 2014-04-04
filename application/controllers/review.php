@@ -16,6 +16,7 @@ class Review extends CI_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('employee_activity','What were the employees doing?','required');
 		$this->form_validation->set_rules('employee_appearance_examples','Examples of employee dress','required');
+		$this->form_validation->set_rules('date','Date','callback_date_check');
 		if($this->form_validation->run() == false)
 		{
 			$data = array();
@@ -49,7 +50,14 @@ class Review extends CI_Controller {
 			$this->load->view('shopper/thankyou');
 		}
 	}
-	
+	public function date_check($date) {
+		if (preg_match('/\d{4}-\d{2}-\d{2}/',$date)) {
+			return true;
+		} else {
+			$this->form_validation->set_message('date_check','<script>alert(\'The %s field is not formatted correctly. Please use your browsers back button to provide an answer then resubmit the form.\');</script><p>You did not format %1$s correctly.</p>');
+			return false;
+		}
+	}
 	public function ref_submit()
 	{
 		/*
@@ -70,6 +78,7 @@ class Review extends CI_Controller {
 		$this->form_validation->set_message('required','<script>alert(\'An answer to %s is required. Please use your browsers back button to provide an answer then resubmit the form.\');</script><p>You did not answer %1$s.</p>');
 		$this->form_validation->set_rules('employee_activity','What were the employees doing?','required');
 		$this->form_validation->set_rules('employee_appearance_examples','Examples of employee dress','required');
+		$this->form_validation->set_rules('date','Date','callback_date_check');
 		if($this->form_validation->run() == false)
 		{
 			/*
@@ -134,6 +143,7 @@ class Review extends CI_Controller {
 		$this->form_validation->set_message('required','<script>alert(\'An answer to %s is required. Please use your browsers back button to provide an answer then resubmit the form.\');</script><p>You did not answer %1$s.</p>');
 		$this->form_validation->set_rules('employee_activity','What were the employees doing?','required');
 		$this->form_validation->set_rules('employee_appearance_examples','Examples of employee dress','required');
+		$this->form_validation->set_rules('date','Date','callback_date_check');
 		if($this->form_validation->run() == false)
 		{
 			
